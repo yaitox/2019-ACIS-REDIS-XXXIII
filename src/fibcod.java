@@ -25,9 +25,12 @@ public class fibcod {
                 }
             }
             double sumaA = 0;
-            for (int i = 0; i < suma.length()+1; i++) {
-                double f = (0.4472135955)*(Math.pow(1.6480333,i+1)-(Math.pow(-0.618033,i+1)));
-                sumaA = sumaA + (f* Double.parseDouble(String.valueOf(suma.charAt(suma.length()-i))));
+            for (int i = 0; i < suma.length(); i++) {
+                double den = Math.pow(5,0.5); //raiz de 5
+                double num = (Math.pow(1.618034,(suma.length()+1)-i))-(Math.pow(-0.618034,(suma.length()+1)-i));
+                double fib = num/den;
+                //sumaA = sumaA + (f* Double.parseDouble(String.valueOf(suma.charAt(suma.length()-i))));
+                sumaA = sumaA + (fib*Character.getNumericValue(suma.charAt(i)));
             }
             System.out.println(Math.round(sumaA)%524288);
         }
